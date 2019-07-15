@@ -11,6 +11,4 @@ For complete walkthrough, follow the *Explanations.md" file.
 This workshop is using
  - Docker & docker-compose *or* Docker Desktop for Windows and MacOS users
  - A bit of Python and Django to see mecanics of Docker
- - A todo list using React, Redux and a database (maybe PostGreSQL .. still to be determined)
- 
- ... still must be completed ...
+ - A small Cat picture frontend app using React / nginx server to learn more in-depth concepts of Docker
