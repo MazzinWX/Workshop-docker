@@ -11,4 +11,11 @@ For complete walkthrough, follow the *Explanations.md" file.
 This workshop is using
  - Docker & docker-compose *or* Docker Desktop for Windows and MacOS users
  - A bit of Python and Django to see mecanics of Docker
- - A small Cat picture frontend app using React / nginx server to learn more in-depth concepts of Docker
+ - A small Cat picture frontend app using nginx server to learn more in-depth concepts of Docker
+ 
+ Project based on work from Tyler Martinez.
+ __*Medium:*__  
+@slightlytyler/https-medium-com-slightlytyler-containerizing-modern-front-end-applications-part-4-1603eb62dbac?  
+&  
+__*Github:*__  
+slightlytyler/docker-ui-demo
