@@ -3,9 +3,9 @@
 Lovelace 3.9 <br/>
 
 # A docker Workshop
-A todo list project inside a docker environment to learn how docker work
+A project inside a docker environment to learn how docker work
 
-For installation instructions see the *Installation.md* file.
+For installation instructions see the *Installing.md* file.
 For complete walkthrough, follow the *Explanations.md" file.
 
 This workshop is using
@@ -19,3 +19,4 @@ This workshop is using
 &  
 __*Github:*__  
 slightlytyler/docker-ui-demo
+
