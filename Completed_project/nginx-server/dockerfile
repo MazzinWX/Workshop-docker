@@ -1,2 +1,0 @@
-FROM socialengine/nginx-spa
-COPY --from=mazzinwx/docker-ui-demo /usr/app /app
