@@ -6,14 +6,14 @@ Lovelace 3.9 <br/>
 Projects inside a docker environment to learn how docker work
 
 
-- 0: Installation
+- 0: __Installation:__    
     Follow step by step the way to correctly install Docker & Docker Compose
 
-- 1: Basics
+- 1: __Basics:__    
     Starting with simple command lines.
 
-- 2: Tutorial 1
+- 2: __Tutorial 1:__    
     Working on docker with a Singlepage App.
 
-- 3: Tutorial 2
+- 3: __Tutorial 2:__    
     Docker images, managing and creation of Docker images
