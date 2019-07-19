@@ -3,20 +3,17 @@
 Lovelace 3.9 <br/>
 
 # A docker Workshop
-A project inside a docker environment to learn how docker work
+Projects inside a docker environment to learn how docker work
 
-For installation instructions see the *Installing.md* file.
-For complete walkthrough, follow the *Explanations.md" file.
 
-This workshop is using
- - Docker & docker-compose *or* Docker Desktop for Windows and MacOS users
- - A bit of Python and Django to see mecanics of Docker
- - A small Cat picture frontend app using nginx server to learn more in-depth concepts of Docker
- 
- Project based on work from Tyler Martinez.
- __*Medium:*__  
-@slightlytyler/https-medium-com-slightlytyler-containerizing-modern-front-end-applications-part-4-1603eb62dbac?  
-&  
-__*Github:*__  
-slightlytyler/docker-ui-demo
+- 0: Installation
+    Follow step by step the way to correctly install Docker & Docker Compose
 
+- 1: Basics
+    Starting with simple command lines.
+
+- 2: Tutorial 1
+    Working on docker with a Singlepage App.
+
+- 3: Tutorial 2
+    Docker images, managing and creation of Docker images
