@@ -17,3 +17,13 @@ Projects inside a docker environment to learn how docker work
 
 - __Tutorial 2:__    
     Docker images, managing and creation of Docker images
+
+- __Tutorial 3:__    
+    Multi-container environments and volumes
+
+- __Tutorial 4:__    
+    Docker-compose
+    
+All informations and this tutorial is based on 2 things:
+- Docker official documentation
+- Docker tutorial by *Prakhar Srivastav*: https://docker-curriculum.com

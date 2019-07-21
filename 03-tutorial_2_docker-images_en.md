@@ -27,7 +27,7 @@ then
 
 The next step is to create an image with this app.
 This app is written in python, so we'll use Python 3, but more specifically, we'll use `python:3-onbuild` version.
-The `onbuild` means that automation are included. A bit like an install script.
+The `onbuild` means that some automation are included. A bit like an install script.
 Here, it'll COPY a `requirements.txt` file, RUN `pip install` and COPY current directory into `/usr/src/app`
 
 We need now a Dockerfile!
@@ -38,8 +38,43 @@ Starting a blank text page we're going to save to the same folder as the flask a
 We specify our base image
     FROM python:3-onbuild
 Usually, next step is writing commands of copying files and installing dependencies. But `onbuild` version already took care of that.
-We specify the port needed to be exposed. Out flask app is running on port 5000, so let's do this
+We specify the port needed to be exposed. Our flask app is running on port 5000, so let's do this
     EXPOSE 5000
-Last thing is write the command to run the app
+Last thing is to write the command to run the app
     CMD ["python", "./app.py"]
 Save it and now we're ready to build our image.
+
+Before running the command, make sure to use your Docker Hub username:
+    docker login
+then when you've completed your credentials:
+    docker build -t <DOCKER_HUB_USERNAME>/<APP_NAME> . 
+[Don't forget the dot at end of line. With a space between the name and the dot]
+
+The `-t` is used for tag name. The dot is used to give location of the directory containing the Dockerfile.
+
+
+### Docker on AWS
+
+To publish and deploy our app, we'll use AWS Elastic Beanstalk.
+First, we must publish our image on a registry that can be accessed by AWS.
+The easiest one here is Docker Hub. So to publish just do:
+    docker push <DOCKER_HUB_USERNAME>/<APP_NAME>
+
+If it's the first time you push an image, the client will ask you to login.
+Now you can check your image on Docker Hub.
+
+Anyone using Docker can now use that image like this:
+    docker run -p 8888:5000 <DOCKER_HUB_USERNAME>/<APP_NAME>
+    
+Now for AWS, we need an active account.
+Login to your AWS console, and choose Elastic Beanstalk.
+Create New Application, give the app a name and a description.
+In "New Environment", create and choose Web Server Environment
+Fill the info by choosing a domain.
+Choose *Docker* from the predefined platform.
+And upload your code.
+We have to modify the *Dockerrun.aws.json* file by changing it's name. Then we upload
+The environment is setting up, we have to wait a bit!
+
+That dockerrun.aws.json file is a configuration file specifically tailored for AWS.
+So now, the app is deployed and ready to use with the URL given by AWS
