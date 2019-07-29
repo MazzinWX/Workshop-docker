@@ -43,7 +43,7 @@ A `/ #` appear, where we can type any command just like a standard bash terminal
 
 Let's test `ls` or `uptime`
 
-__/!\__ 
+__[!]__ 
 If you're aventurous, it's possible to use, inside the container, `rm -rf bin`. After that `ls` or `echo` won't work anymore.
 But don't forget that it must be done inside the container or you'll lose a lot of work or even break your system.
 Just type `exit` to go outside of the container's terminal.
