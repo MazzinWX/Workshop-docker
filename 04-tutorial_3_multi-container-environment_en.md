@@ -24,7 +24,7 @@ We previously built a Flask container so we're lookibng for a Elasticsearch.
 `docker search elasticsearch`  
     
 Unsurprisingly, we've found an official Elasticsearch image. But they maintain theyr own registry so we'll use this:  
-`docker pull docker.elastic.co/elasticsearch/elasticsearch:6.3.2`
+`docker pull docker.elastic.co/elasticsearch/elasticsearch:6.3.2`  
 then run it in dev mode, specifying ports and settings  
 `docker run -d --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2`
     
