@@ -26,7 +26,9 @@ We previously built a Flask container so we're lookibng for a Elasticsearch.
 Unsurprisingly, we've found an official Elasticsearch image. But they maintain theyr own registry so we'll use this:  
 `docker pull docker.elastic.co/elasticsearch/elasticsearch:6.3.2`  
 then run it in dev mode, specifying ports and settings  
-`docker run -d --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2`
+```
+docker run -d --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+```
     
 We use  `-- name es` to have an easy name for later commands. When it's started, we can check logs:  
 `docker container logs es`
@@ -86,7 +88,7 @@ Let's run `docker container ls` (same as `docker ps`)
 `docker container ls`
 We have one ES container running on 0.0.0.0:9200 we could directly access. If we tell our Flask app to connect to this URL, it should work, right?
 let's look at our Python code:  
-`es = Elasticsearch(host='es')`
+`es = Elasticsearch(host='es')`  
 So it means that 0.0.0.0 host (default port 9200) is ES container running on.
 But that IP (0.0.0.0) is from __host machine__, another container won't be able to access on the same IP address.
 
@@ -112,13 +114,14 @@ Let's create our own network:
 
 To use it, we'll lauch with the `--net` flag.
 First, stop `es` container and remove it from running in the bridge (default) network  
-`docker container stop es`
+```docker container stop es
 
-`docker container rm es`
+docker container rm es
 
-`docker run -d --name es --net foodtrucks-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2`
+docker run -d --name es --net foodtrucks-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
     
-`docker network inspect foodtrucks-net`
+`docker network inspect foodtrucks-net
+```
 
 You can see our `es` container is running inside `foodtrucks-net` bridge network.
 Let's test it further:  
@@ -132,11 +135,12 @@ python app.py
 
 Everything work! Containers can not only communicate by IP address but can also resolve a container name to an IP address (called *automatic service discovery*)
 Gret! Let's launch our Flask container for real now!  
-`docker run -d --net foodtrucks-net -p 5000:5000 --name foodtrucks-web <YOUR_DOCKER_HUB_NAME>/foodtrucks-web`
-    
-`docker container ls`
-    
-`curl -I 0.0.0.0:5000`
+```
+docker run -d --net foodtrucks-net -p 5000:5000 --name foodtrucks-web <YOUR_DOCKER_HUB_NAME>/foodtrucks-web
+
+docker container ls    
+curl -I 0.0.0.0:5000
+```
     
 If you check on your browser @ 0.0.0.0:5000 you'll see the app live!
 It seem to be a huge work but really, we only typed 4 commands to go from zero to running, here is the complete list of what we've done!
