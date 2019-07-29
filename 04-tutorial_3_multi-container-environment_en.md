@@ -120,7 +120,7 @@ docker container rm es
 
 docker run -d --name es --net foodtrucks-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
     
-`docker network inspect foodtrucks-net
+docker network inspect foodtrucks-net
 ```
 
 You can see our `es` container is running inside `foodtrucks-net` bridge network.
