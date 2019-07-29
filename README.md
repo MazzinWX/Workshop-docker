@@ -27,3 +27,7 @@ Projects inside a docker environment to learn how docker work
 All informations and this tutorial is based on 2 things:
 - Docker official documentation
 - Docker tutorial by *Prakhar Srivastav*: https://docker-curriculum.com
+
+If you want to go deeper on __Docker__, look at this Github repo:  
+https://github.com/veggiemonk/awesome-docker
+
