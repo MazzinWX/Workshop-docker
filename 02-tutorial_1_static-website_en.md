@@ -14,7 +14,7 @@ This is called __detached__ mode.
 `docker run -d -P --name static-site prakhar1989/static-site`
 
 The container ID will be displayed. The `-d` is for detached mode, `-P` will publish all exposed ports to random ports and `--name` is the way to give the name we want.
-We can see ports by running that command:
+We can see ports by running that command:  
 `docker port static-site`
 
 __[!]__ Those on Windows running Docker-toolbox, you might need to use `docker-machine ip default` to get the IP __[!]__
@@ -22,8 +22,8 @@ __[!]__ Those on Windows running Docker-toolbox, you might need to use `docker-m
 You can also specify a custom port to which the client will forward connections to the container  
 `docker run -d -p 8888:80 --name static-site2 prakhar1989/static-site`
 
-To stop a detached container run
+To stop a detached container run  
 `docker stop <container_ID>`
-In this case, we can use the name `static-site2` instead of ID
+In this case, we can use the name `static-site2` instead of ID  
 `docker stop static-site2`
 
