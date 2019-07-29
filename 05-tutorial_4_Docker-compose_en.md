@@ -40,28 +40,28 @@ docker rm es foodstrucks-web
 ```
     
 Navigate to the directory then  
-`docker-compose up`
+`docker-compose up`  
 A few lines and 2 docker containers running succesfully in unison. Let's stop it an re-run in detached mode  
-`docker-compose up -d`
+`docker-compose up -d`  
 Where do the names come from? Compose created them. But does Compose also create network automatically? Let's find out!
 To stop we can use  
-`docker-compose down`
+`docker-compose down`  
 Volumes and cluster will be available next time we run them. To remove both we use  
-`docker-compose down -v`
+`docker-compose down -v`  
     
 We'll remove the `foodtrucks` network we created last time also  
-`docker network rm foodstrucks-net`
+`docker network rm foodstrucks-net`  
 Check if it's clean  
-`docker network ls`
+`docker network ls`  
 
 Great! Re-run our services and see if Compose does it's magic!!!  
 ```
 docker-compose up -d
     
 docker container ls
-```
 
-`docker network ls`
+docker network ls
+```
 
 You can see `foodtrucks_default` was created and attached both new services in that network.  
 `docker network inspect foodstrucks_default`
@@ -129,8 +129,7 @@ With that difference, let's stop and re-run
 docker-compose down -v
     
 docker-compose up -d
-```
 
-`curl 0.0.0.0:5000/hello`
-    
+curl 0.0.0.0:5000/hello
+```
 And now it's working!!!!
