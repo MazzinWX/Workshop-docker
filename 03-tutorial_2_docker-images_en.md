@@ -21,7 +21,7 @@ And both can be Official images, typically one word long. Officially maintained 
 Let's create our own first image.
 We'll do an image that sandboxes a simple Flask app.
 So, let's clone the repository locally with this:  
-`git clone https://github.com/prakhar1989/docker-curriculum.git`
+`git clone https://github.com/prakhar1989/docker-curriculum.git`  
 then  
 `cd docker-curriculum/flask-app`
 
@@ -36,19 +36,20 @@ So let's do this!
 Starting a blank text page we're going to save to the same folder as the flask app; using the name `Dockerfile`
 
 We specify our base image  
-`FROM python:3-onbuild`
+`FROM python:3-onbuild`  
 Usually, next step is writing commands of copying files and installing dependencies. But `onbuild` version already took care of that.
 We specify the port needed to be exposed. Our flask app is running on port 5000, so let's do this  
-`EXPOSE 5000`
+`EXPOSE 5000`  
 Last thing is to write the command to run the app  
-`CMD ["python", "./app.py"]`
+`CMD ["python", "./app.py"]`  
+
 Save it and now we're ready to build our image.
 
-Before running the command, make sure to use your Docker Hub username:
-    docker login
-then when you've completed your credentials:
-    docker build -t <DOCKER_HUB_USERNAME>/<APP_NAME> . 
-[Don't forget the dot at end of line. With a space between the name and the dot]
+Before running the command, make sure to use your Docker Hub username:  
+`docker login`  
+then when you've completed your credentials:  
+`docker build -t <DOCKER_HUB_USERNAME>/<APP_NAME> .`  
+[Don't forget the dot at end of line. With a space between the name and the dot]  
 
 The `-t` is used for tag name. The dot is used to give location of the directory containing the Dockerfile.
 
