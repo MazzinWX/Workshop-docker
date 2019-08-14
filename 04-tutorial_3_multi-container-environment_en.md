@@ -20,10 +20,10 @@ First, let's clone the repo locally:
 
 Inside it, you'll find several usefull files (YAML, Dockerfile, etc ..)
 We see we need 2 containers, one for Flask backend, the other one for Elasticsearch.
-We previously built a Flask container so we're lookibng for a Elasticsearch.  
+We previously built a Flask container so we're looking for a Elasticsearch.  
 `docker search elasticsearch`  
     
-Unsurprisingly, we've found an official Elasticsearch image. But they maintain theyr own registry so we'll use this:  
+Unsurprisingly, we've found an official Elasticsearch image. But they maintain their own registry so we'll use this:  
 `docker pull docker.elastic.co/elasticsearch/elasticsearch:6.3.2`  
 then run it in dev mode, specifying ports and settings  
 ```
@@ -31,11 +31,12 @@ docker run -d --name es -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node
 ```
     
 We use  `-- name es` to have an easy name for later commands. When it's started, we can check logs:  
-`docker container logs es`
-and let's try to send a request on the container/ We use 9200 port to send a cURL  
+`docker container logs es`  
+and let's try to send a request on the container.
+We'll use 9200 port to send a cURL  
 `curl 0.0.0.0:9200`
 
-Ok! So now our search container is runnung, we're going to do the same with the Flask container.
+Ok! So now our search container is running, we're going to do the same with the Flask container.
 And we need for that a Dockerfile. This time, we want `pip` install Python dependencies but we want our application to generate our minified JS file for prod.
 And for that, we'll need NodeJS.
 So let's start from an `Ùbuntu` base image to build our Dockerfile from scratch!!!
